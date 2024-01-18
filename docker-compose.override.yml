@@ -9,6 +9,7 @@ services:
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    dockerfile: Dockerfile-Plugins
     healthcheck:
       retries: 15
   netbox-worker:
@@ -18,6 +19,7 @@ services:
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    dockerfile: Dockerfile-Plugins
   netbox-housekeeping:
   image: netbox:latest-plugins
     volumes:
@@ -25,3 +27,4 @@ services:
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
+    dockerfile: Dockerfile-Plugins
