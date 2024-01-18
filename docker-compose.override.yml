@@ -1,6 +1,7 @@
 version: '3.4'
 services:
   netbox:
+  image: netbox:latest-plugins
     ports:
     - 8080:8080
     volumes:
@@ -11,12 +12,14 @@ services:
     healthcheck:
       retries: 15
   netbox-worker:
+  image: netbox:latest-plugins
     volumes:
     - /opt/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
     - netbox-reports-files:/opt/netbox/netbox/reports:z,rw
     - netbox-scripts-files:/opt/netbox/netbox/scripts:z,rw
   netbox-housekeeping:
+  image: netbox:latest-plugins
     volumes:
     - /opt/netbox:/etc/netbox/config:z,ro
     - netbox-media-files:/opt/netbox/netbox/media:z,rw
